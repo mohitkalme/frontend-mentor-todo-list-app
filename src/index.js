@@ -8,7 +8,7 @@ const DATA = [
   { id: "todo-1", name: "Jog around the park 3x", completed: false, listCheckbox:false },
   { id: "todo-2", name: "10 minutes meditation", completed: false, listCheckbox:false },
   { id: "todo-3", name: "Read for 1 hour", completed: false, listCheckbox:false },
-  { id: "todo-4", name: "Pick up groceries", completed: false, listCheckbox:false },
+  { id: "todo-4", name: "Pick up groceries- Eggs, Milk etc.", completed: false, listCheckbox:false },
   { id: "todo-5", name: "Complete Todo App on Frontend Mentor", completed: false, listCheckbox:false },
 ];
 
