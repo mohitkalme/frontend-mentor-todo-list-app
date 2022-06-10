@@ -5,8 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 const DATA = [
   { id: "todo-0", name: "Complete online JavaScript course", completed: true, listCheckbox:true },
-  { id: "todo-2", name: "10 minutes meditation", completed: false, listCheckbox:false },
-  { id: "todo-3", name: "Read for 1 hour", completed: false, listCheckbox:false },
+  { id: "todo-1", name: "10 minutes meditation", completed: false, listCheckbox:false },
+  { id: "todo-2", name: "Read for 1 hour", completed: false, listCheckbox:false },
 ];
 
 ReactDOM.render(
