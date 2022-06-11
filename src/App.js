@@ -122,11 +122,10 @@ function App(props) {
           <Form addTask={addTask} />
 
           <div className="mt-6 ">
-            <div className="rounded-md shadow-xl overflow-hidden ">
+            <div className="rounded-md shadow-xl overflow-hidden ">         
               <div className="flex flex-col max-h-80 overflow-x-hidden overflow-y-auto scrollbar">
-                {taskList}
+                {taskList.reverse()}
               </div>
-
               <div className=" flex dark:bg-very-dark-desaturated-blue bg-very-light-gray dark:text-list-bottom-text text-light-bottom-text  text-sm font-bold py-5 px-6 ">
                 <div className=" mr-auto sm:mr-0">{itemsLeftText}</div>
 
