@@ -117,6 +117,7 @@ function App(props) {
                 style={{display:"flex",flexDirection:"column",maxHeight:"20rem",overflowX:'hidden',overflowY:'auto'}}
                 onReorder={setTasks}
                 layoutScroll
+                className="scrollbar"
                 >
                     {
                       tasks
