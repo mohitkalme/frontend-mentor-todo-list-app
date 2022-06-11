@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Reorder } from "framer-motion"
 import "./App.css";
 import bgDesktopDark from "./images/bg-desktop-dark.jpg";
 import bgDesktopLight from "./images/bg-desktop-light.jpg";
@@ -50,7 +51,7 @@ function App(props) {
 
   function addTask(name) {
     const newTask = { id: "todo-" + nanoid(), name: name, completed: false };
-    setTasks([...tasks, newTask]);
+    setTasks([newTask, ...tasks]);
   }
 
   function deleteTask(id) {
@@ -63,19 +64,6 @@ function App(props) {
     setTasks(notCompletedTasks);
   }
 
-  const taskList = tasks
-    .filter(FILTER_MAP[filter])
-    .map((task) => (
-      <List
-        id={task.id}
-        name={task.name}
-        completed={task.completed}
-        toggleTaskCompleted={toggleTaskCompleted}
-        listCheckbox={task.listCheckbox}
-        deleteTask={deleteTask}
-        key={task.id}
-      />
-    ));
 
   const tasksNoun =
     tasks.filter(FILTER_MAP["Active"]).length > 1 ? "tasks" : "task";
@@ -123,9 +111,27 @@ function App(props) {
 
           <div className="mt-6 ">
             <div className="rounded-md shadow-xl overflow-hidden ">         
-              <div className="flex flex-col max-h-80 overflow-x-hidden overflow-y-auto scrollbar">
-                {taskList.reverse()}
-              </div>
+                <Reorder.Group 
+                axis="y"
+                values={tasks}
+                style={{display:"flex",flexDirection:"column",maxHeight:"20rem",overflowX:'hidden',overflowY:'auto'}}
+                onReorder={setTasks}
+                layoutScroll
+                >
+                    {
+                      tasks
+                      .filter(FILTER_MAP[filter])
+                      .map((task) => (
+                        <List
+                        key={task.id}
+                          task={task}
+                          deleteTask={deleteTask}
+                          toggleTaskCompleted={toggleTaskCompleted}
+                        />
+                      ))
+                    }
+                  </Reorder.Group>
+              
               <div className=" flex dark:bg-very-dark-desaturated-blue bg-very-light-gray dark:text-list-bottom-text text-light-bottom-text  text-sm font-bold py-5 px-6 ">
                 <div className=" mr-auto sm:mr-0">{itemsLeftText}</div>
 
@@ -195,7 +201,7 @@ function App(props) {
             </div>
 
             <p className="dark:text-list-bottom-text text-light-bottom-text text-center font-bold text-sm tracking-wider mt-10 sm:mt-12">
-              Drag and drop to reorder list- coming soon!
+              Drag and drop to reorder list
             </p>
           </div>
         </div>
