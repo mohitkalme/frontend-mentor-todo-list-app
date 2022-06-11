@@ -68,3 +68,7 @@ background: linear-gradient(150deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
         display: block;
     }
 }
+
+  li {
+    position: relative;
+  }
