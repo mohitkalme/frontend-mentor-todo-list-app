@@ -63,11 +63,11 @@ background: linear-gradient(150deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 .dark .filterClicked{
     color: hsl(220, 98%, 61%);
 }
-@media screen and (min-width: 640px) {
+/* @media screen and (min-width: 640px) {
     .list-parent:hover #cross{
         display: block;
     }
-}
+} */
 
   li {
     position: relative;

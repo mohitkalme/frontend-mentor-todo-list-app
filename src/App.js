@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Reorder } from "framer-motion"
 import "./App.css";
 import bgDesktopDark from "./images/bg-desktop-dark.jpg";
@@ -29,10 +29,17 @@ function App(props) {
 
   React.useEffect(() => {
     localStorage.setItem("theme", theme);
+    
+    if(theme==='dark'){
+      document.body.style.backgroundColor = `hsl(235, 21%, 11%)`
+    }else{
+      document.body.style.backgroundColor = `hsl(0, 0%, 98%)`
+    }
   }, [theme]);
 
   const [tasks, setTasks] = useState(props.tasks);
   const [filter, setFilter] = useState("All");
+  const constraintsRef = useRef(null)
 
   function toggleTaskCompleted(id) {
     console.log("running on render");
@@ -109,15 +116,43 @@ function App(props) {
 
           <Form addTask={addTask} />
 
+          <div className=" flex sm:hidden mt-3 shadow-xl rounded-md dark:bg-very-dark-desaturated-blue bg-very-light-gray py-4">
+              <ul className=" list-none text-sm font-bold flex mx-auto gap-5 ">
+                <li
+                  onClick={() => setFilter("All")}
+                  className={` dark:text-list-bottom-text  text-light-bottom-text  ${
+                    filter === "All" ? "filterClicked" : ""
+                  }  cursor-pointer`}
+                >
+                  All
+                </li>
+                <li
+                  onClick={() => setFilter("Active")}
+                  className={` ${
+                    filter === "Active" ? "filterClicked" : ""
+                  } dark:text-list-bottom-text  text-light-bottom-text  cursor-pointer`}
+                >
+                  Active
+                </li>
+                <li
+                  onClick={() => setFilter("Completed")}
+                  className={` ${
+                    filter === "Completed" ? "filterClicked" : ""
+                  } dark:text-list-bottom-text  text-light-bottom-text  cursor-pointer`}
+                >
+                  Completed
+                </li>
+              </ul>
+            </div>
+
           <div className="mt-6 ">
             <div className="rounded-md shadow-xl overflow-hidden ">         
                 <Reorder.Group 
                 axis="y"
                 values={tasks}
-                style={{display:"flex",flexDirection:"column",maxHeight:"20rem",overflowX:'hidden',overflowY:'auto'}}
+                style={{display:"flex",flexDirection:"column",overflow:'hidden'}}
                 onReorder={setTasks}
-                layoutScroll
-                className="scrollbar"
+                ref={constraintsRef}
                 >
                     {
                       tasks
@@ -128,6 +163,7 @@ function App(props) {
                           task={task}
                           deleteTask={deleteTask}
                           toggleTaskCompleted={toggleTaskCompleted}
+                          constraintsRef={constraintsRef}
                         />
                       ))
                     }
@@ -172,38 +208,16 @@ function App(props) {
               </div>
             </div>
 
-            <div className=" flex sm:hidden mt-4 shadow-xl rounded-md dark:bg-very-dark-desaturated-blue bg-very-light-gray py-4">
-              <ul className=" list-none text-sm font-bold flex mx-auto gap-5 ">
-                <li
-                  onClick={() => setFilter("All")}
-                  className={` dark:text-list-bottom-text  text-light-bottom-text  ${
-                    filter === "All" ? "filterClicked" : ""
-                  }  cursor-pointer`}
-                >
-                  All
-                </li>
-                <li
-                  onClick={() => setFilter("Active")}
-                  className={` ${
-                    filter === "Active" ? "filterClicked" : ""
-                  } dark:text-list-bottom-text  text-light-bottom-text  cursor-pointer`}
-                >
-                  Active
-                </li>
-                <li
-                  onClick={() => setFilter("Completed")}
-                  className={` ${
-                    filter === "Completed" ? "filterClicked" : ""
-                  } dark:text-list-bottom-text  text-light-bottom-text  cursor-pointer`}
-                >
-                  Completed
-                </li>
-              </ul>
-            </div>
+            
 
             <p className="dark:text-list-bottom-text text-light-bottom-text text-center font-bold text-sm tracking-wider mt-10 sm:mt-12">
               Drag and drop to reorder list
             </p>
+
+            <div className="attribution dark:text-very-light-grayish-blue text-very-dark-desaturated-blue">
+      Challenge by <a rel="noreferrer" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a rel="noreferrer" href="https://www.instagram.com/mohitkalme21/?hl=en" target="_blank">Mohit kalme</a>.
+    </div>
           </div>
         </div>
       </div>
