@@ -18,7 +18,7 @@ export default function List( { task,deleteTask,toggleTaskCompleted, constraints
 
   
   return (
-    <Reorder.Item layout  drag="y" dragConstraints={ constraintsRef} dragElastic={0.1} transition={spring} value={task} id={task.id} style={{ boxShadow, y }}>
+    <Reorder.Item drag="y" layout dragConstraints={ constraintsRef} transition={spring} dragElastic={0.1} value={task} id={task.id} style={{ boxShadow, y }}>
 
     <div
       className="list-parent relative cursor-pointer flex items-center border border-solid border-transparent dark:border-b-very-dark-grayish-blue border-b-light-border-b  dark:bg-very-dark-desaturated-blue bg-very-light-gray p-3 sm:py-[18px] sm:px-[22px]"
