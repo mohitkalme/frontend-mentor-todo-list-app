@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Reorder } from "framer-motion"
 import "./App.css";
 import sun from "./images/icon-sun.svg";
@@ -35,7 +35,6 @@ function App(props) {
 
   const [tasks, setTasks] = useState(props.tasks);
   const [filter, setFilter] = useState("All");
-  const constraintsRef = useRef(null)
 
   function toggleTaskCompleted(id) {
     console.log("running on render");
@@ -106,7 +105,6 @@ function App(props) {
                 values={tasks}
                 style={{display:"flex",flexDirection:"column",overflow:'hidden'}}
                 onReorder={setTasks}
-                ref={constraintsRef}
                 >
                     {
                       tasks
@@ -117,7 +115,6 @@ function App(props) {
                           task={task}
                           deleteTask={deleteTask}
                           toggleTaskCompleted={toggleTaskCompleted}
-                          constraintsRef={constraintsRef}
                         />
                       ))
                     }
