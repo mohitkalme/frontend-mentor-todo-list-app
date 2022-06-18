@@ -27,10 +27,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: all .2s linear; 
-  -o-transition: all .2s linear; 
-  -moz-transition: all .2s linear; 
-  -webkit-transition: all .2s linear;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 img{
@@ -43,9 +39,6 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  /* font-size: 18px; */
 }
 html, body, #root,.dark,.light{
   height: 100%;

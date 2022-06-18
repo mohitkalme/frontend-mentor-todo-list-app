@@ -1,10 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Reorder } from "framer-motion"
 import "./App.css";
-import bgDesktopDark from "./images/bg-desktop-dark.jpg";
-import bgDesktopLight from "./images/bg-desktop-light.jpg";
-import bgMobileDark from "./images/bg-mobile-dark.jpg";
-import bgMobileLight from "./images/bg-mobile-light.jpg";
 import sun from "./images/icon-sun.svg";
 import moon from "./images/icon-moon.svg";
 import Form from "./components/Form";
@@ -82,24 +78,11 @@ function App(props) {
     // eslint-disable-next-line react/jsx-no-duplicate-props
     <div className={theme}>
       <div className="dark:bg-very-dark-blue bg-very-light-gray h-screen relative">
-        <picture>
-          <source
-            media="(min-width: 640px)"
-            srcSet={theme === "dark" ? bgDesktopDark : bgDesktopLight}
-          />
-          <source
-            media="(min-width: 320px)"
-            srcSet={theme === "dark" ? bgMobileDark : bgMobileLight}
-          />
-          <img
-            src={theme === "dark" ? bgDesktopDark : bgDesktopLight}
-            alt="Hallway with blue filter"
-          />
-        </picture>
+        <header></header>
 
-        <div className="flex flex-col absolute top-12 sm:top-[78px]  left-[24px] right-[24px] sm:max-w-[33.75rem] sm:mx-auto">
+        <div className="todo_main flex flex-col mx-auto">
           <div className="flex justify-between mb-9 sm:mb-12">
-            <h1 className="font-bold tracking-[0.75rem] sm:tracking-[1rem] text-xl sm:text-3xl text-very-light-gray">
+            <h1 className="main_heading font-bold tracking-[0.75rem] sm:tracking-[1rem] text-3xl text-very-light-gray">
               TODO
             </h1>
             <div
@@ -115,35 +98,6 @@ function App(props) {
           </div>
 
           <Form addTask={addTask} />
-
-          <div className=" flex sm:hidden mt-3 shadow-xl rounded-md dark:bg-very-dark-desaturated-blue bg-very-light-gray py-4">
-              <ul className=" list-none text-sm font-bold flex mx-auto gap-5 ">
-                <li
-                  onClick={() => setFilter("All")}
-                  className={` dark:text-list-bottom-text  text-light-bottom-text  ${
-                    filter === "All" ? "filterClicked" : ""
-                  }  cursor-pointer`}
-                >
-                  All
-                </li>
-                <li
-                  onClick={() => setFilter("Active")}
-                  className={` ${
-                    filter === "Active" ? "filterClicked" : ""
-                  } dark:text-list-bottom-text  text-light-bottom-text  cursor-pointer`}
-                >
-                  Active
-                </li>
-                <li
-                  onClick={() => setFilter("Completed")}
-                  className={` ${
-                    filter === "Completed" ? "filterClicked" : ""
-                  } dark:text-list-bottom-text  text-light-bottom-text  cursor-pointer`}
-                >
-                  Completed
-                </li>
-              </ul>
-            </div>
 
           <div className="mt-6 ">
             <div className="rounded-md shadow-xl overflow-hidden ">         
@@ -208,6 +162,35 @@ function App(props) {
               </div>
             </div>
 
+            <div className=" flex sm:hidden mt-3 shadow-xl rounded-md dark:bg-very-dark-desaturated-blue bg-very-light-gray py-4">
+              <ul className=" list-none text-sm font-bold flex mx-auto gap-5 ">
+                <li
+                  onClick={() => setFilter("All")}
+                  className={` dark:text-list-bottom-text  text-light-bottom-text  ${
+                    filter === "All" ? "filterClicked" : ""
+                  }  cursor-pointer`}
+                >
+                  All
+                </li>
+                <li
+                  onClick={() => setFilter("Active")}
+                  className={` ${
+                    filter === "Active" ? "filterClicked" : ""
+                  } dark:text-list-bottom-text  text-light-bottom-text  cursor-pointer`}
+                >
+                  Active
+                </li>
+                <li
+                  onClick={() => setFilter("Completed")}
+                  className={` ${
+                    filter === "Completed" ? "filterClicked" : ""
+                  } dark:text-list-bottom-text  text-light-bottom-text  cursor-pointer`}
+                >
+                  Completed
+                </li>
+              </ul>
+            </div>
+
             
 
             <p className="dark:text-list-bottom-text text-light-bottom-text text-center font-bold text-sm tracking-wider mt-10 sm:mt-12">
@@ -215,7 +198,6 @@ function App(props) {
             </p>
 
             <div className="attribution dark:text-very-light-grayish-blue text-very-dark-desaturated-blue">
-      Challenge by <a rel="noreferrer" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
       Coded by <a rel="noreferrer" href="https://www.instagram.com/mohitkalme21/?hl=en" target="_blank">Mohit kalme</a>.
     </div>
           </div>

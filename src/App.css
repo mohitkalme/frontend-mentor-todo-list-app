@@ -72,3 +72,58 @@ background: linear-gradient(150deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
   li {
     position: relative;
   }
+
+  .light header{
+    height: 200px;
+	width: 100%;
+	background-image: url('./images/bg-mobile-light.jpg');
+	background-size: cover;
+	background-position: center;
+  }
+  .dark header{
+    height: 200px;
+	width: 100%;
+	background-image: url('./images/bg-mobile-dark.jpg');
+	background-size: cover;
+	background-position: center;
+  }
+  .todo_main{
+    margin-top: -9.5rem;
+    padding: 0 24px;
+  }
+  .main_heading{
+    font-size: 1.8rem;
+    margin: 0px;
+    padding: 0px;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    font-size: 1.8rem;
+    transform: translateY(4px);
+  }
+  @media screen and (min-width:23.43rem) {
+    .todo_main{
+        margin-top: -14rem;
+    padding: 0 24px;
+    max-width: 35.75rem;
+    }
+    .main_heading{
+        font-size: 2.5rem;
+    }
+  }
+  @media screen and (min-width:23.43rem){
+    .light header{
+        height: 300px;
+	width: 100%;
+	background-image: url('./images/bg-desktop-light.jpg');
+	background-size: cover;
+	background-position: center;
+    }
+
+    .dark header{
+        height: 300px;
+        width: 100%;
+        background-image: url('./images/bg-desktop-dark.jpg');
+        background-size: cover;
+        background-position: center;
+      }
+  }
