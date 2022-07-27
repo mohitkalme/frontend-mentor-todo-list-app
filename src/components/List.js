@@ -34,7 +34,6 @@ export default function List({ task }) {
       value={task}
       id={task.id}
       style={{ boxShadow, y }}
-      dragListener={false}
       dragControls={dragControls}
     >
       <div className="list-parent relative cursor-pointer flex items-center border border-solid border-transparent dark:border-b-very-dark-grayish-blue border-b-light-border-b  dark:bg-very-dark-desaturated-blue bg-very-light-gray p-3 sm:py-[18px] sm:px-[8px] pl-1 sm:pr-4">
