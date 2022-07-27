@@ -1,0 +1,7 @@
+.dragIndicator{
+    color: #494C6B;
+    margin: 0;
+    padding: 0;
+    margin-right: 5px;
+    cursor: grab;
+}

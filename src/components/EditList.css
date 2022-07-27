@@ -1,0 +1,40 @@
+.edit-list-container{
+    width: 100%;
+}
+.edit-toto-underline{
+    width: 100%;
+    position: relative;
+    padding-bottom: 0.23rem;
+}
+.edit-toto-underline::after{
+    position: absolute;
+    content: "";
+    height: 1px;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    background-color: white;
+    width: 100%;
+    animation: formContainer 0.23s linear forwards;
+    transform: scale(0);
+}
+.light .edit-toto-underline::after{
+    background-color: hsl(235, 19%, 35%);
+}
+.edit-todo-input{
+    width: 100%;
+    background-color: inherit;
+    margin: 0;
+    outline: none;
+    border: none;
+    color: white;
+}
+.light .edit-todo-input{
+    color: hsl(235, 19%, 35%);
+}
+
+@keyframes formContainer {
+100%{
+transform: scale(1);
+}
+}
