@@ -86,7 +86,7 @@ function App() {
               axis="y"
               values={tasks}
               className="flex flex-col "
-              onReorder={updateReorder}
+              onReorder={(values)=>updateReorder(values)}
             >
               {tasks.filter(FILTER_MAP[filter]).map((task) => (
                 <List
