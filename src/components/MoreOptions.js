@@ -14,6 +14,12 @@ export default function MoreOptions({ taskId }) {
 
   function handleChange(e) {
     e.stopPropagation();
+    const allDropdown = document.querySelectorAll('.dropdown');
+    allDropdown.forEach(element=>{
+      if(element.classList.contains('open')){
+        element.classList.remove('open')
+      }
+    })
     popupRef.current.classList.add("open");
   }
 
@@ -27,6 +33,7 @@ export default function MoreOptions({ taskId }) {
     setTimeout(() => {
       dispatch(deleteTodo(taskId));
       popupRef.current.classList.remove("open");
+
     }, 50);
   }
   function handleButtonFocusChange(e) {
@@ -54,8 +61,8 @@ export default function MoreOptions({ taskId }) {
         </div>
       </div>
 
-      <div onClick={handleChange} onBlur={handleButtonFocusChange}>
-        <IconButton color="primary" aria-label="More Options">
+      <div onClick={handleChange} >
+        <IconButton color="primary" aria-label="More Options"  onBlur={handleButtonFocusChange}>
           <MoreVertIcon />
         </IconButton>
       </div>
