@@ -39,7 +39,7 @@ export const todoSlice = createSlice({
   initialState,
   reducers: {
     newOrder: (state, action) =>{
-      state.tasks = action.payload
+      state.tasks =[...action.payload]
     },
     addTodo: (state, action) => {
       const newTask = { id: "todo-" + nanoid(), name: action.payload, completed: false,isEditing:false };

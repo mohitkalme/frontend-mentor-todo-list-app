@@ -3,7 +3,7 @@ import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 
 export function ReorderIcon({ dragControls }) {
   return (
-    <div className="dragIndicator" onPointerDown={(event) => dragControls.start(event, { snapToCursor: true })}>
+    <div className="dragIndicator" onPointerDown={(event) => dragControls.start(event)}>
       <DragIndicatorIcon  />
     </div>
   );
