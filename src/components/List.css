@@ -4,4 +4,5 @@
     padding: 0;
     margin-right: 5px;
     cursor: grab;
+    touch-action: pan-x;
 }
